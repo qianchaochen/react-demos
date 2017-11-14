@@ -8,27 +8,30 @@
   <body>
     <div id="example"></div>
     <script type="text/babel">
-      var NotesList = React.createClass({
-        render: function() {
-          return (
-            <ol>
-              {
-                React.Children.map(this.props.children, function (child) {
-                  return <li>{child}</li>;
-                })
-              }
-            </ol>
-          );
-        }
-      });
 
+      var NotesList = React.createClass({
+          render(){
+              return(//返回内容比较多时需要用小括号括起来，要返回一个虚拟的Dom对象，因此写一对dom标签
+                  /*虚拟dom中需要写javascript代码，需要用{}包起来。*/
+                  <ul>
+                      {
+                          React.Children.map(this.props.children, function(item){
+                              //dom中要使用javascript的语法，则需要用{}引起来
+                              return <li>{item}</li>;
+                          })
+                      }
+                  </ul>
+              );
+          }
+      })
       ReactDOM.render(
-        <NotesList>
-          <span>hello</span>
-          <span>world</span>
-        </NotesList>,
-        document.getElementById('example')
+              <NotesList>
+                <span>first</span>
+                <span>last</span>
+              </NotesList>,
+          document.getElementById("example")
       );
+
     </script>
   </body>
 </html>

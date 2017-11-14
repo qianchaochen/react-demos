@@ -8,22 +8,23 @@
   <body>
     <div id="example"></div>
     <script type="text/babel">
-
+      var MyTitle = React.createClass({
+          propTypes:{
+              title:React.PropTypes.string.isRequired
+          },
+          getDefaultProps:function(){
+            return {title:"abc"}
+          },
+          render(){
+              return <h3>{this.props.title},{this.props.name}</h3>
+          }
+      })
       var data = 123;
 
-      var MyTitle = React.createClass({
-        propTypes: {
-          title: React.PropTypes.string.isRequired,
-        },
-
-        render: function() {
-          return <h1> {this.props.title} </h1>;
-        }
-      });
-
       ReactDOM.render(
-        <MyTitle title={data} />,
-        document.getElementById('example')
+//          <MyTitle title={data}/>,
+          <MyTitle name="myName..."/>,
+          document.getElementById("example")
       );
 
     </script>

@@ -7,25 +7,29 @@
   </head>
   <body>
     <div id="example"></div>
-    <script type="text/babel">
-var MyComponent = React.createClass({
-  handleClick: function() {
-    this.refs.myTextInput.focus();
-  },
-  render: function() {
-    return (
-      <div>
-        <input type="text" ref="myTextInput" />
-        <input type="button" value="Focus the text input" onClick={this.handleClick} />
-      </div>
-    );
-  }
-});
 
-ReactDOM.render(
-  <MyComponent />,
-  document.getElementById('example')
-);
+    <script type="text/babel">
+
+      var MyComponent = React.createClass({
+          handleClick:function(){
+            this.refs.myText.focus();
+          },
+          render(){
+            return(
+                    <div>
+                      <input type="text" ref="myText" />
+                      <input type="button" onClick={this.handleClick} value="click me to get focus" />
+                    </div>
+            );
+          }
+      })
+
+      ReactDOM.render(
+          <MyComponent/>,
+          document.getElementById("example")
+      );
+
     </script>
+
   </body>
 </html>
