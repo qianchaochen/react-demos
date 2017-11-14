@@ -9,17 +9,17 @@
     <div id="example"></div>
     <script type="text/babel">
       var names = ['Alice', 'Emily', 'Kate'];
-
       ReactDOM.render(
-        <div>
-        {
-          names.map(function (name, index) {
-            return <div key={index}>Hello, {name}!</div>
-          })
-        }
-        </div>,
-        document.getElementById('example')
-      );
+          <div>
+              {names.map(function(item, index){
+                  return <li key={index}>{item}</li>;
+              })}
+
+          </div>,
+          document.getElementById("example"));
+
+
+
     </script>
   </body>
 </html>
